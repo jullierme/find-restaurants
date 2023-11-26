@@ -13,7 +13,9 @@ public class Constants {
     public static final String INVALID_DISTANCE_MESSAGE = String.format("The distance must be between %s and %s", MINIMUM_DISTANCE, MAXIMUM_DISTANCE);
     public static final String INVALID_RATING_MESSAGE = String.format("The rating must be between %s and %s", MINIMUM_RATING, MAXIMUM_RATING);
     public static final String INVALID_PRICE_MESSAGE = String.format("The price must be between %s and %s", MINIMUM_PRICE, MAXIMUM_PRICE);
-
     public static final String NO_ARGS_MESSAGE = "No parameters were informed";
     public static final String INVALID_ARGS_MESSAGE = "The parameter passed is not valid.";
+    public static final String NO_RESTAURANTS_FOUND = "No restaurants found.";
+
+
 }

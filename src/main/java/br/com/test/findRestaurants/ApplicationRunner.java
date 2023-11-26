@@ -8,6 +8,7 @@ import br.com.test.findRestaurants.exceptions.ParametersException;
 import br.com.test.findRestaurants.parameters.ParametersToBean;
 import br.com.test.findRestaurants.parameters.ValidateParameters;
 import br.com.test.findRestaurants.search.RestaurantsSearch;
+import br.com.test.findRestaurants.util.Constants;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -28,7 +29,7 @@ public class ApplicationRunner implements CommandLineRunner {
         final List<RestaurantBean> restaurants = runSearch(args);
 
         if (restaurants.isEmpty()) {
-            System.out.println("No restaurants found.");
+            System.out.println(Constants.NO_RESTAURANTS_FOUND);
         } else {
             for (RestaurantBean restaurant : restaurants) {
                 System.out.println(restaurant.toString());

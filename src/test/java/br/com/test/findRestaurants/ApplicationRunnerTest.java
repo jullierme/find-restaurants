@@ -27,7 +27,7 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
-class ApplicationRunnerIntegrationTest {
+class ApplicationRunnerTest {
 
     private final PrintStream standardOut = System.out;
     private final ByteArrayOutputStream outputStreamCaptor = new ByteArrayOutputStream();
@@ -64,7 +64,7 @@ class ApplicationRunnerIntegrationTest {
         applicationRunner.run(new String[]{jsonString});
 
         // then
-        assertEquals("No restaurants found.", outputStreamCaptor.toString().trim());
+        assertEquals(Constants.NO_RESTAURANTS_FOUND, outputStreamCaptor.toString().trim());
     }
 
     @Test
