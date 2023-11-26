@@ -15,8 +15,11 @@ import java.util.Map;
 public class ReadCuisinesImpl implements ReadCuisines {
     @Override
     public Map<Integer, String> getCuisines() throws CsvFileException {
-        InputStream inputStream = ClassLoader.getSystemResourceAsStream(Constants.CSV_CUISINES);
+        InputStream inputStream = getClass().getClassLoader().getResourceAsStream(Constants.CSV_CUISINES);
         Map<Integer, String> cuisineMap = new HashMap<>();
+
+        if (inputStream == null)
+            throw new CsvFileException("CSV file not found: " + Constants.CSV_CUISINES);
 
         try (BufferedReader br = new BufferedReader(new InputStreamReader(inputStream))) {
             String line;

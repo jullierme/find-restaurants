@@ -19,6 +19,7 @@ public class ParametersToBeanImpl implements ParametersToBean {
 
         try {
             String jsonString = args[0];
+            System.out.println(jsonString);
             Gson gson = new GsonBuilder()
                     .setLenient()
                     .setFieldNamingPolicy(FieldNamingPolicy.IDENTITY)

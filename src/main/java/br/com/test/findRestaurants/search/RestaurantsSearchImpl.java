@@ -15,7 +15,7 @@ public class RestaurantsSearchImpl implements RestaurantsSearch {
     @Override
     public List<RestaurantBean> search(ParametersBean parameters, List<RestaurantBean> restaurants) {
         return restaurants.stream()
-                .filter(restaurant -> isNameMatch(parameters.getRestaurantName(), restaurant.getName()))
+                .filter(restaurant -> isRestaurantNameMatch(parameters.getRestaurantName(), restaurant.getName()))
                 .filter(restaurant -> isCustomerRatingMatch(parameters.getCustomerRating(), restaurant.getCustomerRating()))
                 .filter(restaurant -> isDistanceMatch(parameters.getDistance(), restaurant.getDistance()))
                 .filter(restaurant -> isPriceMatch(parameters.getPrice(), restaurant.getPrice()))
@@ -28,8 +28,8 @@ public class RestaurantsSearchImpl implements RestaurantsSearch {
                 .collect(Collectors.toList());
     }
 
-    private boolean isNameMatch(String query, String name) {
-        return isStringEmpty(query) || name.toLowerCase().contains(query.toLowerCase());
+    private boolean isRestaurantNameMatch(String query, String restaurantName) {
+        return isStringEmpty(query) || restaurantName.toLowerCase().contains(query.toLowerCase());
     }
 
     private boolean isCustomerRatingMatch(Integer query, Integer customerRating) {

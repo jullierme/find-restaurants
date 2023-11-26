@@ -17,8 +17,11 @@ import java.util.Map;
 public class ReadRestaurantsImpl implements ReadRestaurants {
     @Override
     public List<RestaurantBean> getAllRestaurants(Map<Integer, String> cuisines) throws CsvFileException {
-        InputStream inputStream = ClassLoader.getSystemResourceAsStream(Constants.CSV_RESTAURANTS);
+        InputStream inputStream = getClass().getClassLoader().getResourceAsStream(Constants.CSV_RESTAURANTS);
         List<RestaurantBean> restaurants = new ArrayList<>();
+
+        if (inputStream == null)
+            throw new CsvFileException("CSV file not found: " + Constants.CSV_RESTAURANTS);
 
         try (BufferedReader br = new BufferedReader(new InputStreamReader(inputStream))) {
             String line;
