@@ -6,24 +6,23 @@
 
 ## Execution & Decision Making
 
-- I used Java for this assessment
+- I utilized Java for this assessment.
 
-- I decided to load the CSV data into memory since there are only a few data points. From this list with all the data in
-  memory, I performed the restaurant search based on the provided parameters.
+- To optimize efficiency due to the limited data volume in the CSV, I chose to load it into memory. With all the data in
+  memory, I executed the restaurant search based on the provided parameters.
 
-- In case of no results, instead of returning an empty list, the system informs if no records are found.
+- Rather than returning an empty list, the system notifies if no records are found.
 
-- Since it's a one-time execution application, I didn't store the CSV's read values.
+- Given the nature of this application as a one-time execution, I abstained from storing the CSV's read values.
 
-- Created an executable .jar that returns search results in the console. For this specific application, this approach
-  fulfilled the requirements.
-- I decided to create simple unit tests for all classes. There are some cases that might not be covered but,
-  the idea was to have a good amount of tests.
+- Developed an executable .jar that showcases search results in the console, effectively meeting the project's
+  requirements.
 
-- Integrations tests was also not implemented because I think it's not necessary for this project.
+- I opted to create straightforward unit tests for all classes, aiming to cover a significant number of scenarios.
 
-- I didn't add comments into the code because, I believe that the code must be good enough to be
-  understandable.
+- I refrained from implementing integration tests as I deemed them unnecessary for this project.
+
+- Comments weren't included in the code as I believe the code itself should be self-explanatory and understandable.
 
 ## Front-End
 
@@ -40,7 +39,7 @@
 - To execute the JAR, use:
 
 ```shell
-java -jar findRestaurants-0.0.1-SNAPSHOT.jar '{"customerRating":3,"price":15,"restaurantName":"Yummy","cuisine":"an","customerRating":3, "distance":1}'
+java -jar best-matched-restaurants-jsb-0.0.1-SNAPSHOT.jar '{"customerRating":3,"price":15,"restaurantName":"Yummy","cuisine":"an","customerRating":3, "distance":1}'
 ```
 
 ## Project Structure & Components

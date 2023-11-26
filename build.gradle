@@ -35,8 +35,3 @@ dependencies {
 tasks.named('test') {
     useJUnitPlatform()
 }
-
-jar {
-    enabled = true
-    archiveFileName.set('best-matched-restaurants-jsb.jar')
-}
