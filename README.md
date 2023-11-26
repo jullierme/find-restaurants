@@ -75,6 +75,9 @@ java -jar best-matched-restaurants-jsb-0.0.1-SNAPSHOT.jar '{"customerRating":3,"
 - The source code repository is available
   at: [https://github.com/jullierme/find-restaurants](https://github.com/jullierme/find-restaurants)
 
+- The executable JAR is available
+  at: [https://github.com/jullierme/find-restaurants/tree/main/executable](https://github.com/jullierme/find-restaurants/tree/main/executable)
+
 ## Notes
 
 - Big thanks for the opportunity :)
