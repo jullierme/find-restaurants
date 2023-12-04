@@ -1,6 +1,7 @@
 package br.com.test.findRestaurants.parameters;
 
 import br.com.test.findRestaurants.beans.ParametersBean;
+import br.com.test.findRestaurants.exceptions.ParametersException;
 import br.com.test.findRestaurants.parameters.validators.CustomerRatingValidator;
 import br.com.test.findRestaurants.parameters.validators.DistanceValidator;
 import br.com.test.findRestaurants.parameters.validators.PriceValidator;
@@ -26,7 +27,7 @@ class ValidateParametersImplTest {
     private ValidateParametersImpl validateParametersImpl;
 
     @Test
-    void shouldValidateParameters() {
+    void shouldValidateParameters() throws ParametersException {
         // given
         ParametersBean parametersBean = new ParametersBean();
         parametersBean.setDistance(5);

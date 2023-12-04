@@ -54,7 +54,7 @@ class ParametersToBeanImplTest {
     }
 
     @Test
-    void shouldConvertJsonToParametersBean() {
+    void shouldConvertJsonToParametersBean() throws ParametersException {
         // given
         String cuisine = "chinese";
         String restaurantName = "chinese restaurant";

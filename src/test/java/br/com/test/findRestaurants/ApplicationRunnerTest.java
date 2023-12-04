@@ -22,7 +22,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 
@@ -53,7 +52,7 @@ class ApplicationRunnerTest {
     }
 
     @Test
-    void shouldNotFoundRestaurants() {
+    void shouldNotFoundRestaurants() throws ParametersException {
         // given
         when(parametersToBeanMock.toBean(any())).thenReturn(new ParametersBean());
         when(loadCsvFilesMock.getAllRestaurants()).thenReturn(new ArrayList<>());
@@ -68,7 +67,7 @@ class ApplicationRunnerTest {
     }
 
     @Test
-    void shouldFoundRestaurants() {
+    void shouldFoundRestaurants() throws ParametersException {
         // given
         List<RestaurantBean> restaurantList = new ArrayList<>();
         restaurantList.add(new RestaurantBean("Restaurant 1", 4, 10, 30, "Italian"));
@@ -83,22 +82,5 @@ class ApplicationRunnerTest {
 
         // then
         assertEquals(expectedResult, outputStreamCaptor.toString().trim());
-    }
-
-    @Test
-    void shouldThrowRuntimeExceptionsWhenSearchingRestaurants() {
-        // given
-        ParametersBean parametersBean = new ParametersBean();
-        List<RestaurantBean> restaurantList = new ArrayList<>();
-        restaurantList.add(new RestaurantBean("Restaurant 1", 4, 10, 30, "Italian"));
-        when(parametersToBeanMock.toBean(any())).thenReturn(parametersBean);
-        when(loadCsvFilesMock.getAllRestaurants()).thenReturn(restaurantList);
-        when(restaurantsSearchMock.search(parametersBean, restaurantList)).thenThrow(new ParametersException(Constants.INVALID_RATING_MESSAGE));
-        String jsonString = "{\"rating\":6}";
-
-        // when
-        // then
-        RuntimeException ex = assertThrows(RuntimeException.class, () -> applicationRunner.run(new String[]{jsonString}));
-        assertEquals(ex.getMessage(), Constants.INVALID_RATING_MESSAGE);
     }
 }

@@ -1,8 +1,8 @@
 package br.com.test.findRestaurants.parameters;
 
 import br.com.test.findRestaurants.beans.ParametersBean;
-import com.google.gson.JsonSyntaxException;
+import br.com.test.findRestaurants.exceptions.ParametersException;
 
 public interface ParametersToBean {
-    ParametersBean toBean(String[] args) throws JsonSyntaxException;
+    ParametersBean toBean(String[] args) throws ParametersException;
 }
